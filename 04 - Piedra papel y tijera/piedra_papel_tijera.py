@@ -6,7 +6,7 @@ os.system('cls')
 
 def jugar():
     usuario = input(
-        "Escoge una opción: 'pi' para piedra, 'pa' para papel, 'ti' para tijera.\n").lower()
+        "\nEscoge una opción: 'pi' para piedra, 'pa' para papel, 'ti' para tijera.\n").lower()
     computadora = random.choice(['pi', 'pa', 'ti'])
 
     print(f"La computadora eligió {computadora}")
@@ -26,14 +26,18 @@ def ganó_el_jugador(jugador, oponente):
     # Tijera gana a Papel (ti > pa).
     # Papel gana a Piedra (pa > pi).
     if ((jugador == 'pi' and oponente == 'ti')
-                or (jugador == 'ti' and oponente == 'pa')
-                or (jugador == 'pa' and oponente == 'pi')
-            ):
+        or (jugador == 'ti' and oponente == 'pa')
+        or (jugador == 'pa' and oponente == 'pi')
+        ):
         return True
     else:
         return False
 
 
-print(jugar())
+resultado = jugar()
+print(resultado)
+while resultado == '!Empate!':
+    resultado = jugar()
+    print(resultado)
 
 input("\n\x1B[3mPresione Enter para finalizar.\x1B[0m")
